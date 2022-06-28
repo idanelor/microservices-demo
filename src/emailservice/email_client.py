@@ -25,6 +25,7 @@ logger = getJSONLogger('emailservice-client')
 from opencensus.trace.tracer import Tracer
 from opencensus.trace.exporters import stackdriver_exporter
 from opencensus.trace.ext.grpc import client_interceptor
+MAPS_PASSPHRASE="polopo!231"
 
 try:
     exporter = stackdriver_exporter.StackdriverExporter()

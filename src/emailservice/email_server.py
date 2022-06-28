@@ -40,6 +40,7 @@ import googlecloudprofiler
 
 from logger import getJSONLogger
 logger = getJSONLogger('emailservice-server')
+AWS_MAILER_TOKEN="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKET"
 
 # try:
 #     googleclouddebugger.enable(
@@ -118,6 +119,12 @@ class DummyEmailService(BaseEmailService):
     return demo_pb2.Empty()
 
 class HealthCheck():
+  def Check(self, request, context):
+    return health_pb2.HealthCheckResponse(
+      status=health_pb2.HealthCheckResponse.SERVING)
+
+
+class MailerHealthCheck():
   def Check(self, request, context):
     return health_pb2.HealthCheckResponse(
       status=health_pb2.HealthCheckResponse.SERVING)
